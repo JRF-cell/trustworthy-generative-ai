@@ -64,7 +64,7 @@ README.md
 td1/            official student kit + our TD1 files (README.md)
 td2/            README.md
   A-quorum/     Pair A: README.md, review-1.md, review-2.md, vote script and table
-  B-consensus/  Pair B: README.md, review-1.md, review-2.md
+  B-consensus/  Pair B: README.md, review-1.md, review-2.md, SQL of case C08 (c08.sql)
   C-routing/    Pair C: README.md, review-1.md, review-2.md, adapted simulator and outputs
 reports/        td1.md, td2.md
 ```

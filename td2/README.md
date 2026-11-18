@@ -18,6 +18,7 @@ From the repository root:
 
 ```bash
 python3 td2/A-quorum/vote_td2.py                 # Pair A: 2-of-3 versus 3-of-5
+sqlite3 td1/data/boutique.sqlite < td2/B-consensus/c08.sql   # Pair B: the four C08 queries
 python3 td1/atelier-routage.py                   # Pair C: original simulator (before)
 python3 td2/C-routing/atelier-routage.py         # Pair C: adapted simulator (after)
 ```

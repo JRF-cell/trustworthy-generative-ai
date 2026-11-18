@@ -9,6 +9,34 @@
 - `openai/gpt-oss-20b` and `dots-3-note-preview:free` both return **25920** cents. The reference is **605580** cents.
 - Fixed 2-of-3 panel: consensus 605580 (correct). 3-of-5 quorum: abstention (605580 and 25920 both get 2 votes).
 
+## File and command
+
+[c08.sql](c08.sql) holds the four queries of this case, each with a comment that explains it and gives its expected result:
+
+1. the reference query (605580);
+2. the query of `gpt-oss-20b` (25920);
+3. the query of Dots (25920);
+4. the delta query (5 customers, total 579660).
+
+From the repository root:
+
+```bash
+sqlite3 td1/data/boutique.sqlite < td2/B-consensus/c08.sql
+```
+
+Output:
+
+```
+reference|605580
+gpt-oss-20b|25920
+dots-3-note-preview|25920
+C004|2000-09-25|150260
+C005|2000-09-26|150240
+C007|2000-11-30|118740
+C009|2001-03-10|61330
+C008|2001-05-15|99090
+```
+
 ## Faulty SQL clause
 
 Both models only keep customers born on 2001-09-24 (their 25th birthday is that day). "Exactly 25 years old" means a birth date from 2000-09-25 to 2001-09-24.
