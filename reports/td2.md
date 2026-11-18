@@ -18,24 +18,24 @@ We also look for a wrong consensus in our TD1 traces and prove its cause in SQL.
 ## 2. Environment
 
 - Statement: TD2, pack `2026-11-18-students-5` (final version online). The kit scripts used (`atelier-vote.py`, `atelier-routage.py`, `skeleton-multi-llm-en.py`) have the same content as the online kit.
-- Python: 3.15.0 (`kit-td1/.venv`)
+- Python: 3.15.0 (`td1/.venv`)
 - Database: `data/boutique.sqlite`, opened read-only
-- Data: the 103 real TD1 traces in [traces-td1.csv](../kit-td1/traces-td1.csv), the references in [reference-td1.csv](../kit-td1/reference-td1.csv) and the table [model-question-comparison-en.csv](../kit-td1/model-question-comparison-en.csv)
+- Data: the 103 real TD1 traces in [traces-td1.csv](../td1/traces-td1.csv), the references in [reference-td1.csv](../td1/reference-td1.csv) and the table [model-question-comparison-en.csv](../td1/model-question-comparison-en.csv)
 
 No new network call was made in TD2. Everything below is computed from the stored TD1 traces.
 
 TD2 files:
 
-- [kit-td1/skeleton-multi-llm-en.py](../kit-td1/skeleton-multi-llm-en.py): `vote_k_sur_n` completed (it stays in the kit because `atelier-vote.py` loads it from there);
-- [td2/vote_td2.py](../td2/vote_td2.py) and its output [td2/vote-comparison-td2.csv](../td2/vote-comparison-td2.csv): step 1;
-- [td2/atelier-routage.py](../td2/atelier-routage.py): our adapted simulator (the original stays in `kit-td1/`);
-- [td2/routage-before-td2.txt](../td2/routage-before-td2.txt) and [td2/routage-after-td2.txt](../td2/routage-after-td2.txt): simulator outputs.
+- [td1/skeleton-multi-llm-en.py](../td1/skeleton-multi-llm-en.py): `vote_k_sur_n` completed (it stays in the kit because `atelier-vote.py` loads it from there);
+- [td2/A-quorum/vote_td2.py](../td2/A-quorum/vote_td2.py) and its output [td2/A-quorum/vote-comparison-td2.csv](../td2/A-quorum/vote-comparison-td2.csv): step 1;
+- [td2/C-routing/atelier-routage.py](../td2/C-routing/atelier-routage.py): our adapted simulator (the original stays in `td1/`);
+- [td2/C-routing/routage-before-td2.txt](../td2/C-routing/routage-before-td2.txt) and [td2/C-routing/routage-after-td2.txt](../td2/C-routing/routage-after-td2.txt): simulator outputs.
 
 ## 3. Step 1 - The k-of-n vote
 
 ### Implementation
 
-`Orchestrateur.vote_k_sur_n` is completed in [skeleton-multi-llm-en.py](../kit-td1/skeleton-multi-llm-en.py):
+`Orchestrateur.vote_k_sur_n` is completed in [skeleton-multi-llm-en.py](../td1/skeleton-multi-llm-en.py):
 
 1. `k` must be a strict majority (`n // 2 < k <= n`), otherwise `ValueError`;
 2. two proposals with the same `(provider, model_requested)` raise `ValueError`;
@@ -62,7 +62,7 @@ These values are synthetic, not results on the shop data.
 - 3-of-5: the five TD1 models, k = 3, same `vote_k_sur_n` method.
 - For each model we take its last attempt on the question, as in `atelier-vote.py`. The reference is compared after the vote.
 
-Command (from the repository root): `python3 td2/vote_td2.py`, output in [td2/vote-comparison-td2.csv](../td2/vote-comparison-td2.csv).
+Command (from the repository root): `python3 td2/A-quorum/vote_td2.py`, output in [td2/A-quorum/vote-comparison-td2.csv](../td2/A-quorum/vote-comparison-td2.csv).
 
 | Case | Reference | 2-of-3 decision | Match | 3-of-5 decision | Match | Changes |
 |---|---:|---|---|---|---|---|
@@ -115,11 +115,11 @@ Source and nature: **real batch**, our own TD1 traces (`nature = real`, 2026-10-
 | Question | C08: total revenue excluding VAT, in euro cents, of customers who are exactly 25 years old on 2026-09-24 (all their orders) |
 | Agreeing models | `groq:openai/gpt-oss-20b` (13:39:30 UTC) and `openrouter:dots-studio/dots-3-note-preview:free` (13:41:48 UTC) |
 | Shared wrong value | 25920 cents (`verdict = incorrect` for both) |
-| Independent reference | 605580 cents ([reference-td1.csv](../kit-td1/reference-td1.csv)) |
+| Independent reference | 605580 cents ([reference-td1.csv](../td1/reference-td1.csv)) |
 | Fixed 2-of-3 panel (k = 2) | votes: 605580 (120b), 0 (Cohere), 605580 (Qwen) -> **consensus 605580, correct**. The wrong value gets 0 votes because 20B and Dots are not in the panel |
 | 3-of-5 quorum (k = 3) | votes: 605580 x2, 25920 x2, 0 x1 -> **abstention (max 2 votes)**. The wrong value is not kept, but it blocks the correct one |
 
-These votes can be counted by hand from the values above, and `vote_k_sur_n` gives the same result (`td2/vote_td2.py`).
+These votes can be counted by hand from the values above, and `vote_k_sur_n` gives the same result (`td2/A-quorum/vote_td2.py`).
 
 With a declared 2-of-3 panel made of `gpt-oss-20b`, Dots and Cohere, the wrong value 25920 would win with 2 votes. Agreement between two models is not a proof of correctness.
 
@@ -217,7 +217,7 @@ With proposals [0, 0, 100] and k = 2, the vote keeps 0: a wrong consensus caused
 
 ### TD1 rates per family
 
-From [model-question-comparison-en.csv](../kit-td1/model-question-comparison-en.csv):
+From [model-question-comparison-en.csv](../td1/model-question-comparison-en.csv):
 
 | Family | TD1 cells | gpt-oss-120b | gpt-oss-20b | north-mini-code | qwen3.8-27b | dots-3-note |
 |---|---|---|---|---|---|---|
@@ -230,7 +230,7 @@ From [model-question-comparison-en.csv](../kit-td1/model-question-comparison-en.
 ### Prices (portfolio)
 
 - **Free routes:** in TD1, all five models were called on free routes (Groq Free API, OpenRouter `:free`).
-- **Paid equivalent:** to rank them, we use the billed equivalent of the same model, from [methode-cout-en.md](../kit-td1/methode-cout-en.md) and the portfolio:
+- **Paid equivalent:** to rank them, we use the billed equivalent of the same model, from [methode-cout-en.md](../td1/methode-cout-en.md) and the portfolio:
   - `gpt-oss-20b`: 0.075 / 0.30 USD per M tokens;
   - `gpt-oss-120b`: 0.15 / 0.60;
   - `qwen3.8-27b`: 0.80 / 4.00;
@@ -259,7 +259,7 @@ Twenty questions only support a hypothesis for this batch, not a general error r
 
 ### Simulator: before adaptation
 
-`python3 kit-td1/atelier-routage.py` (original kit file), full output in [td2/routage-before-td2.txt](../td2/routage-before-td2.txt):
+`python3 td1/atelier-routage.py` (original kit file), full output in [td2/C-routing/routage-before-td2.txt](../td2/C-routing/routage-before-td2.txt):
 
 | Scenario | Action | Resource | Reason |
 |---|---|---|---|
@@ -273,13 +273,13 @@ Twenty questions only support a hypothesis for this batch, not a general error r
 
 ### Simulator: after adaptation
 
-What we changed in our copy [td2/atelier-routage.py](../td2/atelier-routage.py):
+What we changed in our copy [td2/C-routing/atelier-routage.py](../td2/C-routing/atelier-routage.py):
 
 - **`RESOURCES`**: the five TD1 models on their free routes, plus the paid portfolio route `gpt-oss-120b#openrouter` (0.00025 USD per request). The `level` becomes `families`: a model is eligible on a family only if it was 100 % correct on it in TD1. The resources are listed cheapest first.
 - **`choose`**: it uses `family` and `use` (dashboard, customer, payout) instead of `difficulty` and `high_impact`. The checks come from our rule, and every `reason` cites the TD1 cells.
 - **Scenarios**: the seven scenarios are kept. The "exhausted" state now means the Groq free quota is used up (HTTP 429, as for Qwen on C17 to C19 in TD1). The reset time of 60 minutes is fictitious.
 
-`python3 td2/atelier-routage.py`, full output in [td2/routage-after-td2.txt](../td2/routage-after-td2.txt):
+`python3 td2/C-routing/atelier-routage.py`, full output in [td2/C-routing/routage-after-td2.txt](../td2/C-routing/routage-after-td2.txt):
 
 | Scenario | Request | Action | Resource | Checks | Reason |
 |---|---|---|---|---|---|
