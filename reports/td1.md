@@ -48,7 +48,7 @@ I was responsible for writing and executing the SQL queries for questions C07, C
 
 **C09:** Calculate revenue from all orders made by customers who were exactly 25 years old on September 26, 2026.
 
-The SQL queries and calculated values are saved in [reference-td1.csv](../kit-td1/reference-td1.csv).
+The SQL queries and calculated values are saved in [reference-td1.csv](../td1/reference-td1.csv).
 
 Independent verification by another group member is still pending.
 
