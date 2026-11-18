@@ -35,14 +35,53 @@ Our work consists of:
 
 The five models are accessed through Groq and OpenRouter.
 
-## TD2 and TD3
+TD1 files (all in `kit-td1/`):
+- `reference-td1.csv`: the 20 SQL reference answers.
+- `traces-A-new.csv`, `traces-B.csv`, `traces-C.csv`, `traces-D.csv`, `traces-E.csv` (and the `state-*.jsonl` files): raw traces of each model.
+- `merge_traces.py` -> `traces-td1.csv`: the merged traces of the five models.
+- `build_td1_comparisons.py` -> `model-question-comparison-en.csv` and `five-model-summary-en.csv`: the TD1 tables.
 
-The same repository will be used for TD2 and TD3. Their work and reports will be added after each session.
+Report: `reports/td1.md`.
+
+## TD2: The Quorum, then the Routing Rule
+
+For TD2, we reuse the TD1 traces (no new model call).
+
+Our work consists of:
+1. Completing the k-of-n vote `vote_k_sur_n` in `skeleton-multi-llm-en.py`.
+2. Comparing the fixed 2-of-3 panel with a 3-of-5 quorum on the 20 questions.
+3. Explaining a wrong consensus (C08) in SQL on `data/boutique.sqlite`.
+4. Writing a routing rule per question family and adapting `atelier-routage.py`.
+
+TD2 files:
+- `kit-td1/skeleton-multi-llm-en.py`: the only TD2 change inside the kit (`vote_k_sur_n`). It stays there because `atelier-vote.py` loads it from the same folder.
+- `td2/vote_td2.py` -> `td2/vote-comparison-td2.csv`: 2-of-3 versus 3-of-5 on the 20 questions.
+- `td2/atelier-routage.py`: our adapted copy of the simulator. The original is kept in `kit-td1/atelier-routage.py`.
+- `td2/routage-before-td2.txt` and `td2/routage-after-td2.txt`: simulator outputs before and after adaptation.
+
+Commands, from the repository root:
+
+```bash
+cd kit-td1
+python3 atelier-vote.py                                    # four synthetic examples
+python3 atelier-vote.py --traces traces-td1.csv --case C02 # fixed panel on one question
+cd ..
+python3 td2/vote_td2.py                                    # 2-of-3 versus 3-of-5
+python3 kit-td1/atelier-routage.py > td2/routage-before-td2.txt
+python3 td2/atelier-routage.py > td2/routage-after-td2.txt
+```
+
+Report: `reports/td2.md`.
+
+## TD3
+
+The same repository will be used for TD3. Its work and report will be added after the session.
 
 ## Project Structure
 
-- `kit-td1/`: Official student kit, SQLite database, Python scripts and experiment files.
-- `reports/`: Reports for each TD.
+- `kit-td1/`: Official student kit, SQLite database, and our TD1 files (traces, references, tables).
+- `td2/`: Our TD2 scripts and outputs.
+- `reports/`: One report per TD (`td1.md`, `td2.md`).
 - `README.md`: Project information and setup instructions.
 
 ## Setup
