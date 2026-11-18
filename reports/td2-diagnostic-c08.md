@@ -73,6 +73,6 @@ ORDER BY c.customer_id;
 
 **Total omis : 579 660.** Le client né le 24/09/2001 reste inclus pour 25 920 ; 25 920 + 579 660 = 605 580. Les requêtes fautives ajoutent zéro client hors référence.
 
-Vérification indépendante : jointure des CSV en Python, calcul de l’âge par différence des années puis retrait de 1 si l’anniversaire n’est pas encore passé. Le total vaut aussi 605 580. Voir `evidence/reference-check.csv` et [verification_csv.py](../kit-td1/verification_csv.py).
+Vérification indépendante : jointure des CSV en Python, calcul de l’âge par différence des années puis retrait de 1 si l’anniversaire n’est pas encore passé. Le total vaut aussi 605 580. Voir `evidence/reference-check.csv` et [verification_csv.py](../td2/B-consensus/verification_csv.py).
 
 Conséquence : augmenter n ne garantit ni plus de couverture ni plus de justesse. Pour un résultat client ou un paiement, vérifier déterministement les conditions d’âge. Le consensus n’est jamais une preuve SQL.

@@ -1,11 +1,13 @@
 """Lecture des traces et fonctions communes au vote et au routage."""
 import csv
+import json
 import importlib.util
 import sys
 from pathlib import Path
 from types import SimpleNamespace
 
-HERE = Path(__file__).resolve().parent
+TD2 = Path(__file__).resolve().parent
+KIT = TD2.parent / 'kit-td1'
 PANEL3 = [('groq', 'openai/gpt-oss-120b'),
           ('openrouter', 'cohere/north-mini-code:free'), ('groq', 'qwen/qwen3.8-27b')]
 PANEL5 = PANEL3 + [('openrouter', 'dots-studio/dots-3-note-preview:free'),
@@ -33,9 +35,9 @@ def load_module(name, path):
 
 
 def vote(proposals, k):
-    if 'td2_skeleton' not in sys.modules:
-        load_module('td2_skeleton', HERE / 'skeleton-multi-llm-en.py')
-    return sys.modules['td2_skeleton'].Orchestrateur.vote_k_sur_n(None, proposals, k)
+    if 'td2_vote' not in sys.modules:
+        load_module('td2_vote', TD2 / 'A-quorum/vote.py')
+    return sys.modules['td2_vote'].vote_k_sur_n(proposals, k)
 
 
 def load_cells(path, nature, references):
@@ -94,3 +96,27 @@ def rates(cells):
                            'observed': observed, 'complete': observed == len(cases),
                            'cells': details})
     return output
+
+
+def load_inputs():
+    reference_rows = read_csv(KIT / 'reference-td1.csv')
+    references = {row['case_id']: int(row['revenue_cents']) for row in reference_rows}
+    if set(references) != {f'C{i:02}' for i in range(1, 21)}:
+        raise ValueError('Il faut les 20 références')
+    cells = load_cells(KIT / 'traces-td1.csv', 'real', references)
+    if len(cells) != 100:
+        raise ValueError('Il faut les 100 cellules du TD1')
+    return reference_rows, references, cells
+
+
+def save_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+
+def save_csv(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', newline='', encoding='utf-8') as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)

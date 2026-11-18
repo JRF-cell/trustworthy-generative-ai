@@ -1,10 +1,10 @@
 """Contract, actual-data regression and routing-policy checks; no network."""
 import unittest
 from types import SimpleNamespace
-from td2_common import HERE, vote, load_module, PANEL3, PANEL5, proposals, load_cells
+from td2_common import KIT, TD2, vote, load_module, PANEL3, PANEL5, proposals, load_cells
 from td2_common import read_csv
 
-router = load_module('td2_router_tests', HERE / 'atelier-routage.py')
+router = load_module('td2_router_tests', TD2 / 'C-routing/atelier-routage.py')
 
 
 def panel(values):
@@ -44,9 +44,14 @@ class VoteTests(unittest.TestCase):
         for value in ['3',3.0,True]:
             with self.subTest(value=value),self.assertRaises(ValueError):vote(panel([value,3,3]),2)
 
+    def test_skeleton_uses_team_a_vote(self):
+        skeleton = load_module('td1_skeleton_test', KIT / 'skeleton-multi-llm-en.py')
+        result = skeleton.Orchestrateur.vote_k_sur_n(None, panel([7,7,9]), 2)
+        self.assertEqual(result, vote(panel([7,7,9]), 2))
+
     def test_actual_cases(self):
-        refs={r['case_id']:int(r['revenue_cents']) for r in read_csv(HERE/'reference-td1.csv')}
-        cells=load_cells(HERE/'traces-td1.csv','real',refs)
+        refs={r['case_id']:int(r['revenue_cents']) for r in read_csv(KIT/'reference-td1.csv')}
+        cells=load_cells(KIT/'traces-td1.csv','real',refs)
         self.assertEqual(len(cells),100)
         for case in ['C02','C08']:
             self.assertEqual(vote(proposals(cells,case,PANEL3),2)['value'],refs[case])

@@ -40,10 +40,10 @@ sub-group. Read the environment guide first. Preparation was due by 18 October; 
 
 | File | Role |
 |---|---|
-| `skeleton-multi-llm-en.py` | The orchestrator skeleton: prompt, clients, sandboxed execution, verdict, trace table, rates. The k-of-n vote is yours to write in TD 2. |
+| `skeleton-multi-llm-en.py` | The orchestrator skeleton: prompt, clients, sandboxed execution, verdict, trace table, rates. The k-of-n vote calls the implementation in `../td2/A-quorum/vote.py`. |
 | `sandbox_sqlite.py` | Read-only SQLite sandbox, used by the skeleton for every query a model returns. |
-| `atelier-vote.py` | Runs your vote on four synthetic examples, then on the stored traces of one question. No network. |
-| `atelier-routage.py` | Reads the decisions of a routing rule on seven scenarios with synthetic resources, then you adapt it to your own rule. No network. |
+| [`atelier-vote.py`](../td2/A-quorum/atelier-vote.py) | Runs your vote on four synthetic examples, then on the stored traces of one question. No network. |
+| [`atelier-routage.py`](../td2/C-routing/atelier-routage.py) | Reads the decisions of a routing rule on seven scenarios with synthetic resources, then you adapt it to your own rule. No network. |
 
 ## Reading a portfolio and a cost
 
@@ -73,7 +73,7 @@ sub-group. Read the environment guide first. Preparation was due by 18 October; 
 cd kit-td1
 python3 check_access.py                       # Python, database hash, one probe per authorised model
 python3 skeleton-multi-llm-en.py --demo       # the whole chain on three simulated models, no key, no network
-python3 atelier-routage.py                    # the seven routing scenarios, no network
+python3 ../td2/C-routing/atelier-routage.py                    # the seven routing scenarios, no network
 ```
 
 Then step 1 of [enonce-td1-en](enonce-td1-en.html): fill in `reference-td1.csv`. Step 2 uses the allocation and `--models` / `--cases` commands in the assignment. The base batch is 100 cells (60 Groq, 40 OpenRouter); controls and retries are separate, with at most one retry per cell. Each operator checks their own allowance. Keep the CSV and JSONL attempts.

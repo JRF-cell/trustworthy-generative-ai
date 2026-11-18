@@ -13,8 +13,8 @@ Les trois tentatives supplémentaires sont celles de Qwen sur C17, C18 et C19.
 
 Les 20 références ont été vérifiées par SQL et par un calcul Python indépendant
 sur les CSV. La base passe les contrôles d'intégrité.
-[Preuves](../kit-td1/evidence/reference-check.csv),
-[provenance et empreintes](../kit-td1/evidence/provenance.json).
+[Preuves](../td2/B-consensus/resultats/reference-check.csv),
+[provenance et empreintes](../td2/resultats/provenance.json).
 Sous Windows, `.gitattributes` garde les fins de ligne LF des données et du schéma
 pour que leurs empreintes correspondent au manifeste.
 
@@ -30,7 +30,7 @@ Le panel 2/3 contient 120B, Cohere et Qwen. Le panel 3/5 ajoute Dots et 20B.
 Les quatre exemples synthétiques passent : accord → 100 ; désaccord → abstention ;
 un seul modèle disponible → abstention ; [0, 0, 100] → consensus erroné à 0.
 Sur la table jouet, `>` exclut la vente du 01/01/2026 (0), `>=` l'inclut (100).
-[Sorties](../kit-td1/evidence/vote-synthetique.jsonl).
+[Sorties](../td2/A-quorum/resultats/vote-synthetique.jsonl).
 
 | Cas | Référence | 2/3 : valeur, voix, résultat | 3/5 : valeur, voix, résultat |
 |---|---:|---|---|
@@ -73,13 +73,13 @@ Les différences s'expliquent ainsi :
 - **C18** : Dots donne 39580, 20B donne la référence 62480. Le consensus correct passe de 3 à 4 voix.
 - **C03, C04, C05, C06, C07, C12, C13, C14, C20** : les cinq modèles donnent la référence du tableau, tous avec le verdict `correct`. Le consensus passe de 3 à 5 voix.
 
-Les [détails CSV](../kit-td1/evidence/comparison.csv) conservent les valeurs et statuts de chaque modèle.
+Les [détails CSV](../td2/A-quorum/resultats/comparison.csv) conservent les valeurs et statuts de chaque modèle.
 
 ## B — Erreur partagée
 
 Quatre cas contiennent une même valeur erronée donnée par deux modèles :
 C02 (0), C08 (25920), C09 (0), C11 (0). Aucun ne produit de quorum erroné ici.
-[Inventaire et requêtes](../kit-td1/evidence/shared-wrong-values.json).
+[Inventaire et requêtes](../td2/B-consensus/resultats/shared-wrong-values.json).
 
 Nous analysons **C08**, issu des traces réelles. Dots et 20B sélectionnent seulement
 les clients nés le 24/09/2001. Pour avoir 25 ans le 24/09/2026, il faut être né dans
@@ -111,9 +111,9 @@ Avant : trois ressources fictives. Après : les cinq routes gratuites du TD1,
 avec des disponibilités simulées. En cas de pénurie, toutes ces routes sont
 épuisées ; aucune route payante mesurée ne permet de traiter l'urgence.
 Chaque `reason` cite les questions et les ratios utilisés.
-[Avant](../kit-td1/evidence/routage-avant.jsonl),
-[après](../kit-td1/evidence/routage-apres.jsonl),
-[cas par famille et usage](../kit-td1/evidence/routage-familles-usages.json).
+[Avant](../td2/C-routing/resultats/routage-avant.jsonl),
+[après](../td2/C-routing/resultats/routage-apres.jsonl),
+[cas par famille et usage](../td2/C-routing/resultats/routage-familles-usages.json).
 
 Dans le code fourni, `included` est testé avant `waiting`. Un abonnement disponible
 avec `cash == 0` est donc choisi avant d'attendre une route gratuite épuisée,
@@ -124,14 +124,14 @@ respecte le délai, puis recontrôler la disponibilité au réveil.
 
 ## Vérification et limites
 
-Depuis `kit-td1` :
+Depuis `td2` :
 
 ```bash
 python -m unittest test_td2.py
 python analyse_td2.py
 ```
 
-Les 17 tests passent. Le script recalcule les résultats, vérifie les références
+Les 18 tests passent. Le script recalcule les résultats, vérifie les références
 et rapproche l'écart SQL. Les rapports sont maintenus séparément en Markdown.
 
 Le vote, le diagnostic et le simulateur fonctionnent. C10 reste une abstention.

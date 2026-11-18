@@ -8,16 +8,31 @@
 
 [Rapport commun](../reports/td2.md).
 
-Chaque équipe relit sa partie puis la présente aux deux autres équipes.
-Les fichiers `review-1.md` et `review-2.md` servent à noter ces deux relectures.
-Ils sont à compléter après la revue.
+Chaque dossier contient le code de l'équipe, ses résultats, son README et deux
+fiches de revue. Les revues sont à compléter après les relectures.
 
-## Fichiers utiles
+```text
+td2/
+  analyse_td2.py          # lance les trois parties
+  td2_common.py           # lecture des traces et fonctions communes
+  test_td2.py
+  A-quorum/
+    vote.py
+    atelier-vote.py
+    comparaison.py
+    resultats/
+  B-consensus/
+    diagnostic_sql.py
+    verification_csv.py
+    sql/
+    resultats/
+  C-routing/
+    atelier-routage.py
+    atelier-routage-original.py
+    resultats/
+```
 
-- Vote : `kit-td1/skeleton-multi-llm-en.py`, méthode `vote_k_sur_n`.
-- Calculs et vérifications : `kit-td1/analyse_td2.py`.
-- Routage : `kit-td1/atelier-routage.py`.
-- Résultats : `kit-td1/evidence/`.
-
-Depuis `kit-td1`, lancer `python analyse_td2.py` pour recalculer les résultats.
-Les rapports sont des fichiers Markdown à mettre à jour si les résultats changent.
+Depuis `td2`, lancer `python analyse_td2.py`, puis `python -m unittest test_td2.py`.
+Les données d'entrée restent dans `kit-td1/`. La méthode du squelette officiel
+appelle `A-quorum/vote.py`, pour garder une seule implémentation du vote.
+Les rapports sont à mettre à jour si les résultats changent.

@@ -5,7 +5,7 @@ No network, no key. The panel is fixed to three distinct model families. The
 reference is compared AFTER the decision: the vote never receives it.
 
     python3 atelier-vote.py                                    # four synthetic examples
-    python3 atelier-vote.py --traces traces-td1.csv --case C02  # the real traces of one question
+    python3 atelier-vote.py --traces ../../kit-td1/traces-td1.csv --case C02  # the real traces of one question
 """
 import argparse
 import csv
@@ -23,11 +23,11 @@ PANEL = [
 
 
 def load_vote():
-    spec = importlib.util.spec_from_file_location("student_skeleton", Path(__file__).with_name("skeleton-multi-llm-en.py"))
+    spec = importlib.util.spec_from_file_location("student_skeleton", Path(__file__).with_name("vote.py"))
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
-    return lambda proposals, k: module.Orchestrateur.vote_k_sur_n(None, proposals, k)
+    return module.vote_k_sur_n
 
 
 def proposals_for(rows, case, nature):

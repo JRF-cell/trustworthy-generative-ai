@@ -1,6 +1,9 @@
 """Vérification indépendante : calcul des 20 réponses sur les CSV en Python."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from datetime import date
-from td2_common import HERE, read_csv
+from td2_common import KIT, read_csv
 
 # Pour chaque question : début, fin, date de référence, âge à la commande, produits.
 # Les périodes sont de la forme [début, fin[.
@@ -30,10 +33,10 @@ SPECS = {
 def independent_csv_total(spec):
     start, end, reference, at_order, products = spec
     customers = {c['customer_id']: date.fromisoformat(c['birth_date'])
-                 for c in read_csv(HERE / 'data/customers.csv')}
-    prices = {p['product_id']: int(p['price']) for p in read_csv(HERE / 'data/product.csv')}
+                 for c in read_csv(KIT / 'data/customers.csv')}
+    prices = {p['product_id']: int(p['price']) for p in read_csv(KIT / 'data/product.csv')}
     total = 0
-    for order in read_csv(HERE / 'data/orders.csv'):
+    for order in read_csv(KIT / 'data/orders.csv'):
         when = order['date']
         if start and not start + ' 00:00:00' <= when < end + ' 00:00:00':
             continue

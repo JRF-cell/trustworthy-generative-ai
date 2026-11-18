@@ -1,7 +1,10 @@
 """Choisir un modèle à partir des résultats TD1. Simulation sans appel réseau."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import argparse
 import json
-from td2_common import HERE, PANEL5, FAMILIES, load_cells, rates, read_csv
+from td2_common import KIT, PANEL5, FAMILIES, load_cells, rates, read_csv
 
 # The five TD1 access routes are free under the supplied course protocol.
 # Availability is simulated; no provider request is made.
@@ -11,8 +14,8 @@ RESOURCES = [dict(id=f'{p}:{m}', provider=p, model=m, access='free',
 
 
 def measured_resources():
-    refs = {r['case_id']: int(r['revenue_cents']) for r in read_csv(HERE / 'reference-td1.csv')}
-    stats = rates(load_cells(HERE / 'traces-td1.csv', 'real', refs))
+    refs = {r['case_id']: int(r['revenue_cents']) for r in read_csv(KIT / 'reference-td1.csv')}
+    stats = rates(load_cells(KIT / 'traces-td1.csv', 'real', refs))
     resources = []
     for resource in RESOURCES:
         evidence = {}
