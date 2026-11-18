@@ -27,3 +27,5 @@ python3 td2/C-routing/atelier-routage.py         # after
 | F2b age at the order | `gpt-oss-20b` (1/1) | none | reference SQL | reference SQL + human review |
 | F3 product list | `gpt-oss-20b` (4/4) | none | 2-of-3 quorum | reference SQL + human review |
 | Combinations | `gpt-oss-20b` (5/5) | none | 3-of-5 quorum | reference SQL + human review |
+
+## Reviewed and checked by Fatima IMGHI
