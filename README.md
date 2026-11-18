@@ -1,127 +1,25 @@
 # Trustworthy Generative AI
 
-ESILV | A4 Data & AI | 2026–2027
+ESILV — DIA 5, groupe 2.
 
-This repository contains our work for the Next-Generation AI course at ESILV.
+- [TD1](td1/README.md)
+- [TD2](td2/README.md)
+- [TD3](td3/README.md)
+- [Rapport TD2](reports/td2.md)
 
-The goal is to evaluate how reliably different language models generate SQL queries. We compare their answers with reference results calculated directly from a SQLite database.
+Les scripts, les traces et la base SQLite sont dans `kit-td1/`.
 
+## Lancer le TD2
 
-## Team
-
-**Class:** DIA 5  
-**Subgroup:** 2
-
-### Members
-
-- FERHAT Jawed
-- PONS-BOUREGBA Roman
-- MAITREHENRY Hugo
-- SIMON Alvina
-- HENNOUCHE Yanice
-- HAMOURI Badis
-- IMGHI Fatima
-
-
-## TD1: Evaluating Language Models
-
-For TD1, we compare five language models on 20 questions about sales revenue.
-
-Our work consists of:
-1. Writing SQL queries to calculate the correct answers.
-2. Independently verifying these reference results.
-3. Running the same questions through five AI models.
-4. Comparing the results and analyzing errors, response times and costs.
-
-The five models are accessed through Groq and OpenRouter.
-
-## TD2 and TD3
-
-TD2 is implemented offline using the 100 final TD1 cells (103 stored attempts).
-
-- [TD2 report and twenty-question comparison](reports/td2.md)
-- [SQL diagnosis of the real C08 shared error](reports/td2-diagnostic-c08.md)
-- [Routing rule, exact family rates and three uses](reports/td2-regle-routage.md)
-- [AI assistance and remaining team review](reports/td2-ai-assistance.md)
-
-Reproduce with Python 3.10+ and the standard library, without API keys:
+Python 3.10 ou plus récent suffit. Pas de bibliothèque à installer ni de clé API.
 
 ```bash
 cd kit-td1
-python -m unittest -v test_td2.py
+python atelier-vote.py
 python analyse_td2.py
-python atelier-routage.py --scenario deferrable
+python atelier-routage.py
+python -m unittest test_td2.py
 ```
 
-Both quorums return 17 correct consensuses and 3 abstentions, on different
-questions. The C08 SQL diagnostic explains an exact gap of 579,660 euro cents.
-See the report for limitations, the A/B/C team assignments and the remaining cross-review.
-TD3 will be added after its session.
-
-## Project Structure
-
-- `kit-td1/`: Official student kit, SQLite database, Python scripts and experiment files.
-- `reports/`: Reports for each TD.
-- `README.md`: Project information and setup instructions.
-
-## Setup
-
-Requirements:
-- Python 3.10 or newer
-- The `requests` Python package
-- Free Groq and OpenRouter accounts
-
-From the repository root:
-
-```bash
-cd kit-td1
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install requests
-python3 verify-data.py
-```
-
-The verification should return `"ok": true`.
-
-To check access to the five AI models, first configure the `GROQ_API_KEY` and `OPENROUTER_API_KEY` environment variables following the official environment guide.
-
-Then run:
-
-```bash
-python3 check_access.py | tee ready-for-td1.txt
-```
-
-This command makes five API requests. API keys must never be committed to GitHub.
-
-The commands for running the TD1 experiments and reproducing the results will be documented as the group completes the work.
-
-## Technical Information
-
-- Course pack: `2026-10-18-students-1`
-- Python version used: 3.14.6
-- Database: SQLite (`boutique.sqlite`)
-- Providers: Groq and OpenRouter
-
-Database SHA-256:
-
-`0077e235adc2ca647b484e3083c98a6d7cae3ef3655ce366a299caf13398fec2`
-
-## Current Progress
-
-- [x] Downloaded the official October 18 student kit.
-- [x] Verified database integrity.
-- [x] Calculated and saved SQL answers for C07, C08 and C09.
-- [ ] Independently verify these answers with teammates.
-- [ ] Complete the remaining SQL references.
-- [ ] Run the model experiments.
-- [ ] Analyze results and complete `reports/td1.md`.
-
-## AI Assistance
-
-AI tools were used to help prepare the repository and write SQL queries. The group is responsible for checking the results and documenting the prompts used.
-
-## References
-
-- [Course website](https://storage.googleapis.com/docs.g.quanticfactory.io/ESILV/next-generation-ai/latest/index.html)
-- [TD1 instructions](https://storage.googleapis.com/docs.g.quanticfactory.io/ESILV/next-generation-ai/latest/students/kit-td1/enonce-td1-en.html)
-- [Submission requirements](https://storage.googleapis.com/docs.g.quanticfactory.io/ESILV/next-generation-ai/latest/students/submission-en.html)
+Le TD2 utilise les traces du TD1 sans refaire d'appels aux modèles.
+[Aide utilisée](reports/td2-ai-assistance.md).

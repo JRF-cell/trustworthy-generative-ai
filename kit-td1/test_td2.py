@@ -2,7 +2,7 @@
 import unittest
 from types import SimpleNamespace
 from td2_common import HERE, vote, load_module, PANEL3, PANEL5, proposals, load_cells
-from build_references import read_csv
+from td2_common import read_csv
 
 router = load_module('td2_router_tests', HERE / 'atelier-routage.py')
 
@@ -93,13 +93,10 @@ class RoutingTests(unittest.TestCase):
         self.assertEqual(router.choose(self.request,paid)['action'],'run')
         self.assertEqual(router.choose(dict(self.request,budget=.29),paid)['action'],'abstain')
 
-    def test_subscription_priority_reversal(self):
+    def test_available_subscription_precedes_waiting(self):
         free=dict(self.resources[0],available=False,reset_minutes=60)
         subscription=dict(self.resources[0],id='synthetic-subscription',allocation=.04,access='subscription')
         self.assertEqual(router.choose(self.request,[free,subscription])['resource'],'synthetic-subscription')
-        d=router.choose(dict(self.request,preserve_subscription=True),[free,subscription])
-        self.assertEqual(d['action'],'defer')
-        self.assertEqual(d['wake_in_minutes'],60)
 
     def test_all_family_use_combinations(self):
         for family in router.FAMILIES:

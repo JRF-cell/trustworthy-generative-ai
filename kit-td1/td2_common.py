@@ -1,10 +1,9 @@
-"""Shared offline analysis, keeping missing observations distinct from errors."""
+"""Lecture des traces et fonctions communes au vote et au routage."""
+import csv
 import importlib.util
 import sys
-from collections import Counter
 from pathlib import Path
 from types import SimpleNamespace
-from build_references import read_csv
 
 HERE = Path(__file__).resolve().parent
 PANEL3 = [('groq', 'openai/gpt-oss-120b'),
@@ -18,6 +17,11 @@ FAMILIES = {
     'F1+F3': ['C03', 'C13', 'C14'], 'F1+F2': ['C15'],
     'F2+F3': ['C16'], 'F1+F2+F3': ['C17', 'C19'], 'F1+F2b': ['C18'],
 }
+
+
+def read_csv(path):
+    with Path(path).open(encoding='utf-8-sig', newline='') as stream:
+        return list(csv.DictReader(stream))
 
 
 def load_module(name, path):
@@ -74,13 +78,19 @@ def rates(cells):
     output = []
     for family, cases in FAMILIES.items():
         for provider, model in PANEL5:
-            rows = [cells.get((case, provider, model)) for case in cases]
-            counts = Counter(r['verdict'] for r in rows if r)
+            correct = 0
+            observed = 0
+            details = []
+            for case in cases:
+                row = cells.get((case, provider, model), {})
+                if row:
+                    observed += 1
+                if row.get('verdict') == 'correct':
+                    correct += 1
+                details.append({'case': case, 'verdict': row.get('verdict', 'missing'),
+                                'value': row.get('value', '')})
             output.append({'family': family, 'provider': provider, 'model': model,
-                           'cases': cases, 'correct': counts['correct'], 'total': len(cases),
-                           'observed': sum(r is not None for r in rows),
-                           'complete': all(r is not None for r in rows),
-                           'cells': [{ 'case': case, 'verdict': row.get('verdict', 'missing'),
-                                       'value': row.get('value', '') }
-                                     for case, row in zip(cases, [r or {} for r in rows])]})
+                           'cases': cases, 'correct': correct, 'total': len(cases),
+                           'observed': observed, 'complete': observed == len(cases),
+                           'cells': details})
     return output

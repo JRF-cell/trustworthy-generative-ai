@@ -1,8 +1,7 @@
-"""TD2 offline routing simulation, calibrated on the group's stored TD1 traces."""
+"""Choisir un modèle à partir des résultats TD1. Simulation sans appel réseau."""
 import argparse
 import json
-from td2_common import HERE, PANEL5, FAMILIES, load_cells, rates
-from build_references import read_csv
+from td2_common import HERE, PANEL5, FAMILIES, load_cells, rates, read_csv
 
 # The five TD1 access routes are free under the supplied course protocol.
 # Availability is simulated; no provider request is made.
@@ -14,9 +13,14 @@ RESOURCES = [dict(id=f'{p}:{m}', provider=p, model=m, access='free',
 def measured_resources():
     refs = {r['case_id']: int(r['revenue_cents']) for r in read_csv(HERE / 'reference-td1.csv')}
     stats = rates(load_cells(HERE / 'traces-td1.csv', 'real', refs))
-    return [dict(r, evidence={s['family']: s for s in stats
-                             if (s['provider'], s['model']) == (r['provider'], r['model'])})
-            for r in RESOURCES]
+    resources = []
+    for resource in RESOURCES:
+        evidence = {}
+        for stat in stats:
+            if (stat['provider'], stat['model']) == (resource['provider'], resource['model']):
+                evidence[stat['family']] = stat
+        resources.append(dict(resource, evidence=evidence))
+    return resources
 
 
 def choose(request, resources):
@@ -31,7 +35,11 @@ def choose(request, resources):
         complete = evidence.get('complete', False)
         total, correct = evidence.get('total', 0), evidence.get('correct', 0)
         perfect = complete and total > 0 and correct == total
-        level = 3 if perfect else (1 if complete and correct > 0 else 0)
+        level = 0
+        if complete and correct > 0:
+            level = 1
+        if perfect:
+            level = 3
         ratio = f'{correct}/{total}' if complete else 'ND'
         summary.append(f"{r['id']}={ratio}")
         if level and level >= request.get('difficulty', 1):
@@ -41,27 +49,22 @@ def choose(request, resources):
         # At equal cost, favour full observed accuracy, then stable model ID.
         return r['cash'], r['allocation'], not r['perfect'], r['id']
 
-    def decision(action, chosen=None, explanation='', **extra):
+    def decision(action, chosen=None, explanation='', wake_in_minutes=None):
         detail = f"{chosen['id']}={chosen['ratio']}" if chosen else '; '.join(summary)
         checks = 'reference + human review' if use == 'payout' else 'reference'
         if chosen and use == 'internal' and chosen['perfect'] and chosen['cash'] == 0:
             checks = 'none'
-        return dict(action=action, resource=chosen['id'] if chosen else None,
-                    cash=chosen['cash'] if chosen and action == 'run' else 0,
-                    checks=checks, reason=f'{family} [{cases}]; {detail}; {explanation}', **extra)
+        result = dict(action=action, resource=chosen['id'] if chosen else None,
+                      cash=chosen['cash'] if chosen and action == 'run' else 0,
+                      checks=checks, reason=f'{family} [{cases}]; {detail}; {explanation}')
+        if wake_in_minutes is not None:
+            result['wake_in_minutes'] = wake_in_minutes
+        return result
 
     included = [r for r in eligible if r['available'] and r['cash'] == 0]
     waiting = [r for r in eligible if not r['available'] and r['cash'] == 0
                and r['reset_minutes'] is not None
                and 0 < r['reset_minutes'] <= request['deadline_minutes']]
-    free_wait = [r for r in waiting if r['allocation'] == 0]
-    # Reverse the original priority only to conserve subscription allocation
-    # when there is no free route now and the request explicitly tolerates delay.
-    if (request.get('preserve_subscription') and request['can_wait'] and free_wait
-            and not any(r['allocation'] == 0 for r in included)):
-        chosen = min(free_wait, key=lambda r: (r['reset_minutes'], rank(r)))
-        return decision('defer', chosen, 'preserve allocation; recheck at wake-up',
-                        wake_in_minutes=chosen['reset_minutes'])
     if included:
         return decision('run', min(included, key=rank), 'eligible included capacity')
     if request['can_wait'] and waiting:

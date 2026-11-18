@@ -1,23 +1,9 @@
-# Assistance IA — TD2
+# Aide utilisée — TD2
 
-L’utilisateur a demandé à Codex de réaliser le TD2 à partir de l’énoncé officiel,
-puis fourni le dépôt `https://github.com/JRF-cell/trustworthy-generative-ai.git`.
+Codex a aidé à écrire et simplifier le code, vérifier les calculs et préparer les
+rapports. Les résultats viennent des traces du groupe et de la base fournie.
+Aucun nouvel appel aux cinq modèles n'a été effectué ; leurs prompts TD1 n'ont pas changé.
 
-Demandes utilisées :
-
-> [Lien de l’énoncé TD2] fait ca
-
-> https://github.com/JRF-cell/trustworthy-generative-ai.git
-
-Codex a complété le vote, préparé l’analyse des traces existantes, exécuté le SQL
-de diagnostic C08, vérifié les références sur les CSV, adapté le simulateur et
-rédigé les rapports. Les tests synthétiques sont identifiés comme tels.
-
-Aucun appel aux cinq fournisseurs du TD1 n’a été lancé. Les prompts de génération
-SQL, les traces et les références TD1 du groupe sont inchangés. Les valeurs du TD2
-sont calculées sur les fichiers du dépôt, pas inventées par l’assistant.
-
-La répartition A/B/C communiquée par le groupe figure dans le rapport TD2 :
-A — Yanice Hennouche, Roman Pons-Bouregba et Jawed Ferhat ;
-B — Alvina Simon et Hugo Maitrehenry ; C — Badis Hamouri et Fatima Imghi.
-La réalisation de la revue croisée reste à renseigner par les membres.
+Demandes : réaliser le TD2 à partir de l'énoncé et du dépôt du groupe, puis
+simplifier le code, les README et les rapports et organiser les dossiers par équipe.
+La répartition A/B/C a été fournie par le groupe. Les revues restent à compléter.
