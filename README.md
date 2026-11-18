@@ -100,27 +100,6 @@ This command makes five API requests. API keys must never be committed to GitHub
 
 The commands for running the TD1 experiments and reproducing the results will be documented as the group completes the work.
 
-## Technical Information
-
-- Course pack: `2026-10-18-students-1`
-- Python version used: 3.14.6
-- Database: SQLite (`boutique.sqlite`)
-- Providers: Groq and OpenRouter
-
-Database SHA-256:
-
-`0077e235adc2ca647b484e3083c98a6d7cae3ef3655ce366a299caf13398fec2`
-
-## Current Progress
-
-- [x] Downloaded the official October 18 student kit.
-- [x] Verified database integrity.
-- [x] Calculated and saved SQL answers for C07, C08 and C09.
-- [ ] Independently verify these answers with teammates.
-- [ ] Complete the remaining SQL references.
-- [ ] Run the model experiments.
-- [ ] Analyze results and complete `reports/td1.md`.
-
 ## AI Assistance
 
 AI tools were used to help prepare the repository and write SQL queries. The group is responsible for checking the results and documenting the prompts used.
