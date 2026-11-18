@@ -17,6 +17,7 @@ import json
 FAMILY_CELLS = {
     "F1": "C01,C04,C05,C06,C07,C20",
     "F2": "C02,C08,C09,C11",
+    # F2b rests on a single TD1 cell (C10): its 1/1 rate is weak evidence.
     "F2b": "C10",
     "F3": "C03,C12,C13,C14",
     "combinations": "C15,C16,C17,C18,C19",
