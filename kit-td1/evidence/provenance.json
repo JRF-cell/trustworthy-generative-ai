@@ -1,0 +1,13 @@
+{
+  "source_repo": "https://github.com/JRF-cell/trustworthy-generative-ai",
+  "source_commit": "3dc2201cf55a7ab6e83b5134431127df18c0bb63",
+  "trace_rows": 103,
+  "final_cells": 100,
+  "nature": "real",
+  "selection": "last CSV row for each provider/model/case, same as atelier-vote.py",
+  "sha256": {
+    "traces-td1.csv": "59744d4ba24c34ba547b0fb40b6d20d4a3b6a01e111843553cc7da8aa77b86c2",
+    "reference-td1.csv": "ce48d368c374e3dbdb73d282bdff8ff508040fa48c0ed32c48e149d6aebc896a",
+    "data/boutique.sqlite": "0077e235adc2ca647b484e3083c98a6d7cae3ef3655ce366a299caf13398fec2"
+  }
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "case": "C02",
+    "value": 0,
+    "reference": 590320,
+    "models": [
+      {
+        "provider": "openrouter",
+        "model": "dots-studio/dots-3-note-preview:free",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE c.birth_date = '2001-09-25'\n  AND o.date >= '2026-09-25 00:00:00' AND o.date < '2026-09-26 00:00:00';"
+      },
+      {
+        "provider": "groq",
+        "model": "openai/gpt-oss-20b",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price),0) AS revenue_cents\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE c.birth_date > '2025-09-25' AND c.birth_date <= '2026-09-25';"
+      }
+    ],
+    "vote2": {
+      "consensus": true,
+      "value": 590320,
+      "votes": 2,
+      "models": [
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b"
+      ]
+    },
+    "vote5": {
+      "consensus": false,
+      "value": null,
+      "votes": 2,
+      "models": []
+    }
+  },
+  {
+    "case": "C08",
+    "value": 25920,
+    "reference": 605580,
+    "models": [
+      {
+        "provider": "openrouter",
+        "model": "dots-studio/dots-3-note-preview:free",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE (\n    CAST(substr(c.birth_date, 1, 4) AS INTEGER) + 25 = 2026\n    AND substr(c.birth_date, 6, 2) = substr('2026-09-24', 6, 2)\n    AND substr(c.birth_date, 9, 2) = substr('2026-09-24', 9, 2)\n);"
+      },
+      {
+        "provider": "groq",
+        "model": "openai/gpt-oss-20b",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE c.birth_date >= '2001-09-24'\n  AND c.birth_date <  '2001-09-25';"
+      }
+    ],
+    "vote2": {
+      "consensus": true,
+      "value": 605580,
+      "votes": 2,
+      "models": [
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b"
+      ]
+    },
+    "vote5": {
+      "consensus": false,
+      "value": null,
+      "votes": 2,
+      "models": []
+    }
+  },
+  {
+    "case": "C09",
+    "value": 0,
+    "reference": 487980,
+    "models": [
+      {
+        "provider": "openrouter",
+        "model": "cohere/north-mini-code:free",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM customers c\nJOIN orders o ON c.customer_id = o.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE CAST(strftime('%Y-%m-%d', '2026-09-26') AS TEXT) >= c.birth_date\n  AND CAST(strftime('%Y-%m-%d', '2026-09-26', '+1 year') AS TEXT) <= c.birth_date\n     OR (CAST(strftime('%Y-%m-%d', '2026-09-26', '+1 year') AS TEXT) > c.birth_date\n          AND CAST(strftime('%Y-%m-%d', '2026-09-26') AS TEXT) < c.birth_date || '-12-31');"
+      },
+      {
+        "provider": "openrouter",
+        "model": "dots-studio/dots-3-note-preview:free",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE \n    -- Calculate completed age exactly 25 on 2026-09-26\n    -- A person is exactly 25 when their 25th birthday is on or before 2026-09-26\n    -- and their 26th birthday is after 2026-09-26\n    (c.birth_date <= '2001-09-26' AND c.birth_date > '2000-09-26')\n    AND o.date >= '2026-09-26' AND o.date < '2026-09-27';"
+      }
+    ],
+    "vote2": {
+      "consensus": true,
+      "value": 487980,
+      "votes": 2,
+      "models": [
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b"
+      ]
+    },
+    "vote5": {
+      "consensus": true,
+      "value": 487980,
+      "votes": 3,
+      "models": [
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b"
+      ]
+    }
+  },
+  {
+    "case": "C11",
+    "value": 0,
+    "reference": 446690,
+    "models": [
+      {
+        "provider": "openrouter",
+        "model": "cohere/north-mini-code:free",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM customers c\nJOIN orders o ON c.customer_id = o.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE\n  -- Compute age on 2026-12-01\n  (\n    -- Age = year difference\n    CAST(SUBSTR(c.birth_date, 1, 4) AS INTEGER) -\n    CAST(SUBSTR('2026-12-01', 1, 4) AS INTEGER)\n  ) = 25\n  AND\n  -- Check that the birthday on 2026-12-01 has already occurred (or is today)\n  SUBSTR(c.birth_date, 6, 5) <= '12-01'"
+      },
+      {
+        "provider": "openrouter",
+        "model": "dots-studio/dots-3-note-preview:free",
+        "sql": "SELECT COALESCE(SUM(o.quantity_product * p.price), 0) AS revenue_cents\nFROM orders o\nJOIN customers c ON o.customer_id = c.customer_id\nJOIN product p ON o.product_id = p.product_id\nWHERE (\n    CAST(SUBSTR(c.birth_date, 1, 4) AS INTEGER) * 10000 +\n    CAST(SUBSTR(c.birth_date, 6, 2) AS INTEGER) * 100 +\n    CAST(SUBSTR(c.birth_date, 9, 2) AS INTEGER)\n) * 10000 + 25 * 365 + 6 <= CAST('20261201' AS INTEGER) AND\n(\n    CAST(SUBSTR(c.birth_date, 1, 4) AS INTEGER) * 10000 +\n    CAST(SUBSTR(c.birth_date, 6, 2) AS INTEGER) * 100 +\n    CAST(SUBSTR(c.birth_date, 9, 2) AS INTEGER)\n) * 10000 + 26 * 365 + 6 > CAST('20261201' AS INTEGER);"
+      }
+    ],
+    "vote2": {
+      "consensus": true,
+      "value": 446690,
+      "votes": 2,
+      "models": [
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b"
+      ]
+    },
+    "vote5": {
+      "consensus": true,
+      "value": 446690,
+      "votes": 3,
+      "models": [
+        "groq:openai/gpt-oss-120b",
+        "groq:qwen/qwen3.8-27b",
+        "groq:openai/gpt-oss-20b"
+      ]
+    }
+  }
+]

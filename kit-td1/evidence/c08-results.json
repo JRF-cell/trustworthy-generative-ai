@@ -1,0 +1,8 @@
+{
+  "faulty_values": [
+    25920,
+    25920
+  ],
+  "reference": 605580,
+  "missed_cents": 579660
+}

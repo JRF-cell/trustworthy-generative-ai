@@ -1,0 +1,1187 @@
+[
+  {
+    "family": "F1",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C01",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C20"
+    ],
+    "correct": 6,
+    "total": 6,
+    "observed": 6,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C01",
+        "verdict": "correct",
+        "value": "792800"
+      },
+      {
+        "case": "C04",
+        "verdict": "correct",
+        "value": "2826250"
+      },
+      {
+        "case": "C05",
+        "verdict": "correct",
+        "value": "38480"
+      },
+      {
+        "case": "C06",
+        "verdict": "correct",
+        "value": "0"
+      },
+      {
+        "case": "C07",
+        "verdict": "correct",
+        "value": "13970"
+      },
+      {
+        "case": "C20",
+        "verdict": "correct",
+        "value": "1106090"
+      }
+    ]
+  },
+  {
+    "family": "F1",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C01",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C20"
+    ],
+    "correct": 6,
+    "total": 6,
+    "observed": 6,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C01",
+        "verdict": "correct",
+        "value": "792800"
+      },
+      {
+        "case": "C04",
+        "verdict": "correct",
+        "value": "2826250"
+      },
+      {
+        "case": "C05",
+        "verdict": "correct",
+        "value": "38480"
+      },
+      {
+        "case": "C06",
+        "verdict": "correct",
+        "value": "0"
+      },
+      {
+        "case": "C07",
+        "verdict": "correct",
+        "value": "13970"
+      },
+      {
+        "case": "C20",
+        "verdict": "correct",
+        "value": "1106090"
+      }
+    ]
+  },
+  {
+    "family": "F1",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C01",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C20"
+    ],
+    "correct": 5,
+    "total": 6,
+    "observed": 6,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C01",
+        "verdict": "sql_rejected",
+        "value": ""
+      },
+      {
+        "case": "C04",
+        "verdict": "correct",
+        "value": "2826250"
+      },
+      {
+        "case": "C05",
+        "verdict": "correct",
+        "value": "38480"
+      },
+      {
+        "case": "C06",
+        "verdict": "correct",
+        "value": "0"
+      },
+      {
+        "case": "C07",
+        "verdict": "correct",
+        "value": "13970"
+      },
+      {
+        "case": "C20",
+        "verdict": "correct",
+        "value": "1106090"
+      }
+    ]
+  },
+  {
+    "family": "F1",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C01",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C20"
+    ],
+    "correct": 6,
+    "total": 6,
+    "observed": 6,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C01",
+        "verdict": "correct",
+        "value": "792800"
+      },
+      {
+        "case": "C04",
+        "verdict": "correct",
+        "value": "2826250"
+      },
+      {
+        "case": "C05",
+        "verdict": "correct",
+        "value": "38480"
+      },
+      {
+        "case": "C06",
+        "verdict": "correct",
+        "value": "0"
+      },
+      {
+        "case": "C07",
+        "verdict": "correct",
+        "value": "13970"
+      },
+      {
+        "case": "C20",
+        "verdict": "correct",
+        "value": "1106090"
+      }
+    ]
+  },
+  {
+    "family": "F1",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C01",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C20"
+    ],
+    "correct": 6,
+    "total": 6,
+    "observed": 6,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C01",
+        "verdict": "correct",
+        "value": "792800"
+      },
+      {
+        "case": "C04",
+        "verdict": "correct",
+        "value": "2826250"
+      },
+      {
+        "case": "C05",
+        "verdict": "correct",
+        "value": "38480"
+      },
+      {
+        "case": "C06",
+        "verdict": "correct",
+        "value": "0"
+      },
+      {
+        "case": "C07",
+        "verdict": "correct",
+        "value": "13970"
+      },
+      {
+        "case": "C20",
+        "verdict": "correct",
+        "value": "1106090"
+      }
+    ]
+  },
+  {
+    "family": "F2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C02",
+      "C08",
+      "C09",
+      "C11"
+    ],
+    "correct": 4,
+    "total": 4,
+    "observed": 4,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C02",
+        "verdict": "correct",
+        "value": "590320"
+      },
+      {
+        "case": "C08",
+        "verdict": "correct",
+        "value": "605580"
+      },
+      {
+        "case": "C09",
+        "verdict": "correct",
+        "value": "487980"
+      },
+      {
+        "case": "C11",
+        "verdict": "correct",
+        "value": "446690"
+      }
+    ]
+  },
+  {
+    "family": "F2",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C02",
+      "C08",
+      "C09",
+      "C11"
+    ],
+    "correct": 0,
+    "total": 4,
+    "observed": 4,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C02",
+        "verdict": "sql_invalid",
+        "value": ""
+      },
+      {
+        "case": "C08",
+        "verdict": "incorrect",
+        "value": "0"
+      },
+      {
+        "case": "C09",
+        "verdict": "incorrect",
+        "value": "0"
+      },
+      {
+        "case": "C11",
+        "verdict": "incorrect",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F2",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C02",
+      "C08",
+      "C09",
+      "C11"
+    ],
+    "correct": 4,
+    "total": 4,
+    "observed": 4,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C02",
+        "verdict": "correct",
+        "value": "590320"
+      },
+      {
+        "case": "C08",
+        "verdict": "correct",
+        "value": "605580"
+      },
+      {
+        "case": "C09",
+        "verdict": "correct",
+        "value": "487980"
+      },
+      {
+        "case": "C11",
+        "verdict": "correct",
+        "value": "446690"
+      }
+    ]
+  },
+  {
+    "family": "F2",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C02",
+      "C08",
+      "C09",
+      "C11"
+    ],
+    "correct": 0,
+    "total": 4,
+    "observed": 4,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C02",
+        "verdict": "incorrect",
+        "value": "0"
+      },
+      {
+        "case": "C08",
+        "verdict": "incorrect",
+        "value": "25920"
+      },
+      {
+        "case": "C09",
+        "verdict": "incorrect",
+        "value": "0"
+      },
+      {
+        "case": "C11",
+        "verdict": "incorrect",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C02",
+      "C08",
+      "C09",
+      "C11"
+    ],
+    "correct": 2,
+    "total": 4,
+    "observed": 4,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C02",
+        "verdict": "incorrect",
+        "value": "0"
+      },
+      {
+        "case": "C08",
+        "verdict": "incorrect",
+        "value": "25920"
+      },
+      {
+        "case": "C09",
+        "verdict": "correct",
+        "value": "487980"
+      },
+      {
+        "case": "C11",
+        "verdict": "correct",
+        "value": "446690"
+      }
+    ]
+  },
+  {
+    "family": "F2b",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C10"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C10",
+        "verdict": "correct",
+        "value": "558980"
+      }
+    ]
+  },
+  {
+    "family": "F2b",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C10"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C10",
+        "verdict": "sql_invalid",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "family": "F2b",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C10"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C10",
+        "verdict": "incorrect",
+        "value": "119410"
+      }
+    ]
+  },
+  {
+    "family": "F2b",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C10"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C10",
+        "verdict": "incorrect",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F2b",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C10"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C10",
+        "verdict": "correct",
+        "value": "558980"
+      }
+    ]
+  },
+  {
+    "family": "F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C12"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C12",
+        "verdict": "correct",
+        "value": "1666490"
+      }
+    ]
+  },
+  {
+    "family": "F3",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C12"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C12",
+        "verdict": "correct",
+        "value": "1666490"
+      }
+    ]
+  },
+  {
+    "family": "F3",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C12"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C12",
+        "verdict": "correct",
+        "value": "1666490"
+      }
+    ]
+  },
+  {
+    "family": "F3",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C12"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C12",
+        "verdict": "correct",
+        "value": "1666490"
+      }
+    ]
+  },
+  {
+    "family": "F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C12"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C12",
+        "verdict": "correct",
+        "value": "1666490"
+      }
+    ]
+  },
+  {
+    "family": "F1+F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C03",
+      "C13",
+      "C14"
+    ],
+    "correct": 3,
+    "total": 3,
+    "observed": 3,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C03",
+        "verdict": "correct",
+        "value": "936350"
+      },
+      {
+        "case": "C13",
+        "verdict": "correct",
+        "value": "107740"
+      },
+      {
+        "case": "C14",
+        "verdict": "correct",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F3",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C03",
+      "C13",
+      "C14"
+    ],
+    "correct": 3,
+    "total": 3,
+    "observed": 3,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C03",
+        "verdict": "correct",
+        "value": "936350"
+      },
+      {
+        "case": "C13",
+        "verdict": "correct",
+        "value": "107740"
+      },
+      {
+        "case": "C14",
+        "verdict": "correct",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F3",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C03",
+      "C13",
+      "C14"
+    ],
+    "correct": 3,
+    "total": 3,
+    "observed": 3,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C03",
+        "verdict": "correct",
+        "value": "936350"
+      },
+      {
+        "case": "C13",
+        "verdict": "correct",
+        "value": "107740"
+      },
+      {
+        "case": "C14",
+        "verdict": "correct",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F3",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C03",
+      "C13",
+      "C14"
+    ],
+    "correct": 3,
+    "total": 3,
+    "observed": 3,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C03",
+        "verdict": "correct",
+        "value": "936350"
+      },
+      {
+        "case": "C13",
+        "verdict": "correct",
+        "value": "107740"
+      },
+      {
+        "case": "C14",
+        "verdict": "correct",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C03",
+      "C13",
+      "C14"
+    ],
+    "correct": 3,
+    "total": 3,
+    "observed": 3,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C03",
+        "verdict": "correct",
+        "value": "936350"
+      },
+      {
+        "case": "C13",
+        "verdict": "correct",
+        "value": "107740"
+      },
+      {
+        "case": "C14",
+        "verdict": "correct",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C15"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C15",
+        "verdict": "correct",
+        "value": "168680"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C15"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C15",
+        "verdict": "correct",
+        "value": "168680"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C15"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C15",
+        "verdict": "incorrect",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C15"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C15",
+        "verdict": "incorrect",
+        "value": "138920"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C15"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C15",
+        "verdict": "correct",
+        "value": "168680"
+      }
+    ]
+  },
+  {
+    "family": "F2+F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C16"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C16",
+        "verdict": "correct",
+        "value": "376740"
+      }
+    ]
+  },
+  {
+    "family": "F2+F3",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C16"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C16",
+        "verdict": "correct",
+        "value": "376740"
+      }
+    ]
+  },
+  {
+    "family": "F2+F3",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C16"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C16",
+        "verdict": "incorrect",
+        "value": "367050"
+      }
+    ]
+  },
+  {
+    "family": "F2+F3",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C16"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C16",
+        "verdict": "incorrect",
+        "value": "1367540"
+      }
+    ]
+  },
+  {
+    "family": "F2+F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C16"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C16",
+        "verdict": "correct",
+        "value": "376740"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2+F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C17",
+      "C19"
+    ],
+    "correct": 2,
+    "total": 2,
+    "observed": 2,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C17",
+        "verdict": "correct",
+        "value": "258180"
+      },
+      {
+        "case": "C19",
+        "verdict": "correct",
+        "value": "1990"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2+F3",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C17",
+      "C19"
+    ],
+    "correct": 0,
+    "total": 2,
+    "observed": 2,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C17",
+        "verdict": "incorrect",
+        "value": "371990"
+      },
+      {
+        "case": "C19",
+        "verdict": "incorrect",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2+F3",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C17",
+      "C19"
+    ],
+    "correct": 0,
+    "total": 2,
+    "observed": 2,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C17",
+        "verdict": "incorrect",
+        "value": "248490"
+      },
+      {
+        "case": "C19",
+        "verdict": "not_executed",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "family": "F1+F2+F3",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C17",
+      "C19"
+    ],
+    "correct": 2,
+    "total": 2,
+    "observed": 2,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C17",
+        "verdict": "correct",
+        "value": "258180"
+      },
+      {
+        "case": "C19",
+        "verdict": "correct",
+        "value": "1990"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2+F3",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C17",
+      "C19"
+    ],
+    "correct": 2,
+    "total": 2,
+    "observed": 2,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C17",
+        "verdict": "correct",
+        "value": "258180"
+      },
+      {
+        "case": "C19",
+        "verdict": "correct",
+        "value": "1990"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2b",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "cases": [
+      "C18"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C18",
+        "verdict": "correct",
+        "value": "62480"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2b",
+    "provider": "openrouter",
+    "model": "cohere/north-mini-code:free",
+    "cases": [
+      "C18"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C18",
+        "verdict": "correct",
+        "value": "62480"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2b",
+    "provider": "groq",
+    "model": "qwen/qwen3.8-27b",
+    "cases": [
+      "C18"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C18",
+        "verdict": "correct",
+        "value": "62480"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2b",
+    "provider": "openrouter",
+    "model": "dots-studio/dots-3-note-preview:free",
+    "cases": [
+      "C18"
+    ],
+    "correct": 0,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C18",
+        "verdict": "incorrect",
+        "value": "39580"
+      }
+    ]
+  },
+  {
+    "family": "F1+F2b",
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "cases": [
+      "C18"
+    ],
+    "correct": 1,
+    "total": 1,
+    "observed": 1,
+    "complete": true,
+    "cells": [
+      {
+        "case": "C18",
+        "verdict": "correct",
+        "value": "62480"
+      }
+    ]
+  }
+]

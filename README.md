@@ -37,7 +37,26 @@ The five models are accessed through Groq and OpenRouter.
 
 ## TD2 and TD3
 
-The same repository will be used for TD2 and TD3. Their work and reports will be added after each session.
+TD2 is implemented offline using the 100 final TD1 cells (103 stored attempts).
+
+- [TD2 report and twenty-question comparison](reports/td2.md)
+- [SQL diagnosis of the real C08 shared error](reports/td2-diagnostic-c08.md)
+- [Routing rule, exact family rates and three uses](reports/td2-regle-routage.md)
+- [AI assistance and remaining team review](reports/td2-ai-assistance.md)
+
+Reproduce with Python 3.10+ and the standard library, without API keys:
+
+```bash
+cd kit-td1
+python -m unittest -v test_td2.py
+python analyse_td2.py
+python atelier-routage.py --scenario deferrable
+```
+
+Both quorums return 17 correct consensuses and 3 abstentions, on different
+questions. The C08 SQL diagnostic explains an exact gap of 579,660 euro cents.
+See the report for limitations, the A/B/C team assignments and the remaining cross-review.
+TD3 will be added after its session.
 
 ## Project Structure
 

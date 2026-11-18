@@ -1,0 +1,7 @@
+{
+  "nature": "synthetic toy SQL",
+  "results": {
+    ">": 0,
+    ">=": 100
+  }
+}

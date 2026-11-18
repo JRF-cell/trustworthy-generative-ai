@@ -1,0 +1,461 @@
+[
+  {
+    "request": {
+      "family": "F1",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F1 [C01, C04, C05, C06, C07, C20]; groq:openai/gpt-oss-120b=6/6; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F1 [C01, C04, C05, C06, C07, C20]; groq:openai/gpt-oss-120b=6/6; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F1 [C01, C04, C05, C06, C07, C20]; groq:openai/gpt-oss-120b=6/6; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F2 [C02, C08, C09, C11]; groq:openai/gpt-oss-120b=4/4; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F2 [C02, C08, C09, C11]; groq:openai/gpt-oss-120b=4/4; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F2 [C02, C08, C09, C11]; groq:openai/gpt-oss-120b=4/4; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2b",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F2b [C10]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2b",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F2b [C10]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2b",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F2b [C10]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F3",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F3 [C12]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F3",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F3 [C12]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F3",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F3 [C12]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F3",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F1+F3 [C03, C13, C14]; groq:openai/gpt-oss-120b=3/3; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F3",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F1+F3 [C03, C13, C14]; groq:openai/gpt-oss-120b=3/3; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F3",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F1+F3 [C03, C13, C14]; groq:openai/gpt-oss-120b=3/3; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F1+F2 [C15]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F1+F2 [C15]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F1+F2 [C15]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2+F3",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F2+F3 [C16]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2+F3",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F2+F3 [C16]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F2+F3",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F2+F3 [C16]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2+F3",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F1+F2+F3 [C17, C19]; groq:openai/gpt-oss-120b=2/2; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2+F3",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F1+F2+F3 [C17, C19]; groq:openai/gpt-oss-120b=2/2; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2+F3",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F1+F2+F3 [C17, C19]; groq:openai/gpt-oss-120b=2/2; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2b",
+      "use": "internal",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "none",
+      "reason": "F1+F2b [C18]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2b",
+      "use": "customer",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference",
+      "reason": "F1+F2b [C18]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  },
+  {
+    "request": {
+      "family": "F1+F2b",
+      "use": "payout",
+      "difficulty": 1,
+      "can_wait": true,
+      "deadline_minutes": 120,
+      "budget": 0
+    },
+    "result": {
+      "action": "run",
+      "resource": "groq:openai/gpt-oss-120b",
+      "cash": 0.0,
+      "checks": "reference + human review",
+      "reason": "F1+F2b [C18]; groq:openai/gpt-oss-120b=1/1; eligible included capacity"
+    }
+  }
+]
